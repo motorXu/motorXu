@@ -1,0 +1,69 @@
+var list=[
+	//bg
+	[
+		{"bg":"bg/bg.jpg"}
+	],
+	//cover
+	[
+		{"cover":"202010/0.jpg"},
+		{"cover":"202010/1.jpg"},
+		{"cover":"202010/2.jpg"},
+		{"cover":"202010/3.jpg"},
+	],
+	//#li1 a list
+	[
+		{"woeks":"202010"},
+		{"woeks":"202011"}
+	],
+	//img list
+	[
+		//202010
+		[
+			{"img":"a0","bimg":"0","info":"abcd<span>bn</span>","data":"202010"},
+			{"img":"a1","bimg":"1","info":"abcde<span>bn</span>","data":"202010"},
+			{"img":"a2","bimg":"2","info":"abcdef<span>bn</span>","data":"202010"},
+			{"img":"a3","bimg":"3","info":"abcdefg<span>bn</span>","data":"202010"},
+			{"img":"a4","bimg":"4","info":"abcdefgh<span>bn</span>","data":"202010"},
+			{"img":"a0","bimg":"0","info":"abcd<span>bn</span>","data":"202010"},
+			{"img":"a1","bimg":"1","info":"abcde<span>bn</span>","data":"202010"},
+			{"img":"a2","bimg":"2","info":"abcdef<span>bn</span>","data":"202010"},
+			{"img":"a3","bimg":"3","info":"abcdefg<span>bn</span>","data":"202010"},
+			{"img":"a4","bimg":"4","info":"abcdefgh<span>bn</span>","data":"202010"},
+			{"img":"a0","bimg":"0","info":"abcd<span>bn</span>","data":"202010"},
+			{"img":"a1","bimg":"1","info":"abcde<span>bn</span>","data":"202010"},
+			{"img":"a2","bimg":"2","info":"abcdef<span>bn</span>","data":"202010"},
+			{"img":"a3","bimg":"3","info":"abcdefg<span>bn</span>","data":"202010"},
+			{"img":"a4","bimg":"4","info":"abcdefgh<span>bn</span>","data":"202010"},
+			{"img":"a0","bimg":"0","info":"abcd<span>bn</span>","data":"202010"},
+			{"img":"a1","bimg":"1","info":"abcde<span>bn</span>","data":"202010"},
+			{"img":"a2","bimg":"2","info":"abcdef<span>bn</span>","data":"202010"},
+			{"img":"a3","bimg":"3","info":"abcdefg<span>bn</span>","data":"202010"},
+			{"img":"a4","bimg":"4","info":"abcdefgh<span>bn</span>","data":"202010"},
+		],
+		//202011
+		[
+			{"img":"a0","bimg":"0","info":"abcd<span>bn</span>","data":"202011"},
+			{"img":"a1","bimg":"1","info":"abcde<span>bn</span>","data":"202011"},
+			{"img":"a2","bimg":"2","info":"abcdef<span>bn</span>","data":"202011"},
+			{"img":"a3","bimg":"3","info":"abcdefg<span>bn</span>","data":"202011"},
+			{"img":"a4","bimg":"4","info":"abcdefgh<span>bn</span>","data":"202011"},
+		],
+	],
+	//blog list
+	[
+		[
+			{"img":"202010/0","data":"1","p":"标题标题","span":"文案文案","link":"20210602"},
+			{"img":"202010/1","data":"1","p":"标题标题","span":"文案文案","link":"20210602"},
+			{"img":"202010/2","data":"1","p":"标题标题","span":"文案文案","link":"20210602"},
+			{"img":"202010/3","data":"1","p":"标题标题","span":"文案文案","link":"20210602"},
+			{"img":"202010/4","data":"1","p":"标题标题","span":"文案文案","link":"20210602"},
+			{"img":"202010/0","data":"1","p":"标题标题","span":"文案文案","link":"20210602"},
+			{"img":"202010/0","data":"1","p":"标题标题","span":"文案文案","link":"20210602"},
+			{"img":"202010/0","data":"1","p":"标题标题","span":"文案文案","link":"20210602"},
+			{"img":"202010/0","data":"1","p":"标题标题","span":"文案文案","link":"20210602"},
+		]
+	],
+	//about
+	{"p":"During the whole of a dull,dark soundless day，in the autumn of that year在那年秋季枯燥，灰暗而暝寂的某个长日里","img":"./image/works/202010/0.jpg"},
+
+];

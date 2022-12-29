@@ -1,0 +1,366 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+	<head>
+		<meta charset="utf-8">
+		<meta name="robots" content="all">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+		<title>MotorLog</title>
+		<meta name="description" content="motor">
+		<meta name="keywords" content="motor">
+		<meta name="author" content="motorlog@163.com">
+		<link rel="shortcut icon" href="./image/share.png"/>
+		<link rel="stylesheet" href="./css/swiper-bundle.min.css">
+		<link rel="stylesheet" href="./css/fault.css">
+		<link rel="stylesheet" href="./css/index.css">
+	</head>
+	<body>
+		<div class="wrap">
+			<!-- 右上链接 -->
+			<div class="top_share">
+				<a class="spr i1" href="http://" target="_blank" title="weibo"></a>
+				<a class="spr i2" href="http://" target="_blank" title="bil"></a>
+				<a class="spr i3" href="http://" target="_blank" title="douyin"></a>
+				<a class="spr i4" href="http://" target="_blank" title="500px"></a>
+			</div>
+			
+			<a href="javascript:;" class="nav-trigger"><span></span></a>
+			<!-- 左导航 -->
+			<div class="box_nav">
+				<ul>
+					<li class="on"><a href="javascript:;">home</a></li>
+					<li class="">
+						<a href="javascript:;">portfolio</a>
+						<!-- <div class="li1" id="li1">
+							
+						</div> -->
+					</li>
+					<li class=""><a href="javascript:actList.init(4,0);">blog</a></li>
+					<li class=""><a href="javascript:;">about</a></li>
+				</ul>
+			</div>
+
+			<!-- 版权 备案 -->
+			<p class="copyright">Copyright &copy; 2021 xuning<br><span>豫ICP备2021014278号</span></p>
+			
+			<!-- 右内容 -->
+			<div class="box">
+
+				<!--home-->
+				<div class="tab" style="display: block;">
+					<div class="home">
+						<img src="" class="bg">
+						<div class="mask"></div>
+						<div class="demo-1 imgloaded logo">
+							<div class="glitch">
+								<div class="glitch__img"></div>
+								<div class="glitch__img"></div>
+								<div class="glitch__img"></div>
+								<div class="glitch__img"></div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- PORTFOLIO -->
+				<div class="tab">
+					<div class="img-box-list">
+						<!-- pc -->
+						<div class="img-box-list-pc">
+							<div class="img-cont">
+								
+							</div>
+						</div>
+						<!-- H5 -->
+						<div class="img-box-list-h5">
+							<ul>
+								
+							</ul>
+						</div>
+					</div>
+					<div class="img-box">
+						<div class="swiper-container gallery-top">
+							<div class="swiper-wrapper">
+								
+							</div>
+							<!-- Add Arrows -->
+							<div class="swiper-button-next swiper-button-white"></div>
+							<div class="swiper-button-prev swiper-button-white"></div>
+						</div>
+						<div class="swiper-container gallery-thumbs">
+							<div class="swiper-wrapper">
+								
+							</div>
+						</div>
+					</div>
+				</div>
+				
+				<!--blog-->
+				<div class="tab">
+					<div class="plog">
+						
+					</div>
+					<div class="flip disflex"></div>
+				</div>
+
+				<!--about-->
+				<div class="tab">
+					<div class="about disflex">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="./js/jquery-1.11.3.min.js"></script>
+		<script src="./js/data.js"></script>
+		<script src="./js/swiper-bundle.min.js"></script>
+		<script>
+			function preloadImages(o,r,n,a){var e=0,i=o.length,s=[];function l(){e++,this.onerror=this.onload=null,r(e/i),i<=e&&n(s)}function t(){console.warn("err load img: "+this.src),l()}r(0);for(var c=0;c<o.length;c++){var g=new Image;void 0!==a&&(g.crossOrigin=a),s.push(g),g.onload=l,g.onerror=t,g.src=o[c]}};
+			var loading = new preloadImages(
+				["./image/works/202010/0.jpg","./image/works/202010/1.jpg","./image/works/202010/2.jpg","./image/works/202010/3.jpg","./image/works/202010/4.jpg"],
+				function(p) {
+					console.log((p * 100).toFixed(0) + "%");
+					$('.loading_text2 p').text((p * 100).toFixed(0) + "%");
+				},
+				function(eles) {
+					// loading结束后 显示第一页
+					// alert('a');
+				}
+			);
+			$(document).ready(function(){
+				$('.bg').attr('src','./image/' + list[0][0].bg);
+				$('.home').mousemove(function(e) {
+					const el = document.querySelector(".home");
+					const elimg = document.querySelector(".bg");
+					const d = el.getBoundingClientRect();
+					let x = e.clientX - (d.left + Math.floor(d.width / 2));
+					let y = e.clientY - (d.top + Math.floor(d.height / 2));
+					// Invert values
+					x = x - x * 2;
+					y = y - y * 2;
+					elimg.style.setProperty("--scale", 1.6);
+					elimg.style.setProperty("--x", x / 2 + "px");
+					elimg.style.setProperty("--y", y / 2 + "px");
+				}).mouseleave(function() {
+					const elimg = document.querySelector(".bg");
+					elimg.style.setProperty("--scale", 1);
+					elimg.style.setProperty("--x", 0);
+					elimg.style.setProperty("--y", 0);
+				});
+
+				var imglist = "";
+				for(var i = 0;i < list[2].length;i ++ ){
+					imglist += `<a href="javascript:actList.init(3,${i})">${list[2][i].woeks}</a>`;
+				}
+				$('#li1').html(imglist);
+
+				$('.box_nav li').click(function(){
+					var $index=$(this).index();
+					if($index>1){
+						$('.box').addClass('on');
+					}else{
+						$('.box').removeClass('on');
+					}
+					if($index==1 && $('.img-cont a').length==0){
+						var html = "";
+						for(var i = 0;i < list[1].length;i ++ ){
+							html += `<a href="javascript:actList.init(3,${i});">
+										<div class="c">
+											<img src="./image/works/${list[1][i].cover}" alt=""/>
+										</div>
+									</a>
+									<div class="fullBg">
+										<img src="./image/works/${list[1][i].cover}" alt=""/>
+									</div>`;
+						}
+						$('.img-cont').html(html);
+						var html1 = "";
+						for(var i = 0;i < list[1].length;i ++ ){
+							html1 += `<li>
+									<a href="javascript:actList.init(3,${i});">
+										<div class="c">
+											<img src="./image/works/${list[1][i].cover}" alt=""/>
+										</div>
+									</a>
+									</li>`;
+						}
+						$('.img-box-list-h5 ul').html(html1);
+
+						var $images = $('.img-box-list-pc a');
+						$('.img-box-list-pc').mousemove(function(e) {
+							var mouseStart = 0;
+							var mouseEnd = window.innerWidth-180;
+							var moveDistance = $('.img-box-list-pc a').width() * $('.img-box-list-pc a').length - mouseEnd;
+							var offset = (e.pageX - 180 - mouseStart) / (mouseEnd - mouseStart) * moveDistance;
+							$images.css({
+								'-webkit-transform': 'translate3d(' + -offset + 'px,0,0)',
+								'transform': 'translate3d(' + -offset + 'px,0,0)'
+							});
+						});
+					}
+					if($index==3){
+						var html = "";
+						html += `<div class="p1">${list[5].p}</div><img class="img1" src="${list[5].img}">`;
+						$('.about').html(html);
+					}
+					if($('.box_nav').hasClass('show')){
+						$('.box_nav').removeClass('show');
+						$("#nav,.nav-trigger").removeClass("nav-is-visible");
+					}
+					$('.li1 a').removeClass('on');
+					$(this).addClass('on').siblings().removeClass('on');
+					$('.tab').eq($index).show().siblings('.tab').hide();
+					$('.img-box').hide().siblings().show();
+				});
+				$("#li1 a").click(function(e){
+					e.stopPropagation();
+					var $index=$(this).index();
+					$(this).addClass('on').siblings().removeClass('on');
+					$('.box').addClass('on onpor');
+					$('.tab').eq(1).show().siblings('.tab').hide();
+					$('.img-box').show().siblings().hide();
+				});
+				$(".nav-trigger,#logoLg,#nav").click(function(){
+					$("#nav,.nav-trigger").toggleClass("nav-is-visible");
+					$('.box_nav').toggleClass('show');
+				});
+			});
+
+			var galleryThumbs = new Swiper('.gallery-thumbs', {
+				observer:true,
+				observeParents:true,
+				slidesPerView: 'auto',
+				freeMode: true,
+				watchSlidesVisibility: true,
+				watchSlidesProgress: true,
+			});
+			var galleryTop = new Swiper('.gallery-top', {
+				observer:true,
+				observeParents:true,
+				mousewheel: true,
+				effect : 'fade',
+				lazy: true,
+				navigation: {
+					nextEl: '.swiper-button-next',
+					prevEl: '.swiper-button-prev',
+				},
+				thumbs: {
+					swiper: galleryThumbs
+				}
+			});
+
+			function GotoPage(num){
+				Page = num;
+				actList.OutputHtml(4,0);
+			};
+			var PageSize = 3; //每页个数
+			var Page = 1;
+
+			var actList={
+				motorAct:[],motorActCopy:[],
+				init:function(t,n){
+					this.motorAct=[];
+					this.motorActCopy=[];
+					this.actType(t,n);
+					this.OutputHtml(t,n);
+				},
+				actType:function(t,n){
+					for(var i=0;i<list[t][n].length;i++){
+						this.motorAct.push(list[t][n][i]);
+						this.motorActCopy.push(list[t][n][i]);
+					}
+				},
+				actType:function(t,n){
+					for(var i=0;i<list[t][n].length;i++){
+						this.motorAct.push(list[t][n][i]);
+						this.motorActCopy.push(list[t][n][i]);
+					}
+				},
+				OutputHtml:function(t,n){
+					switch(t){
+						case 3:
+							console.log(this.motorAct);
+							$('.box').addClass('on onpor');
+							$('.img-box').show().siblings().hide();
+							var num = this.motorAct.length;
+							var html1 = "";
+							for(var i = 0;i < num;i ++ ){
+								html1 += `<div class="swiper-slide"><img src="./image/works/${this.motorAct[i].data}/${this.motorAct[i].img}.png"></div>`;
+							}
+							galleryThumbs.removeAllSlides();
+							galleryThumbs.update();
+							galleryThumbs.appendSlide(html1);
+							galleryThumbs.slideTo(0);
+							var html2 = "";
+							for(var i = 0;i < num;i ++ ){
+								if( i == 0 ){
+									html2 += `<div class="swiper-slide"><img src="./image/works/${this.motorAct[i].data}/${this.motorAct[i].bimg}.jpg"><p>${this.motorAct[i].info}</p></div>`;
+								}else{
+									html2 += `<div class="swiper-slide"><img data-src="./image/works/${this.motorAct[i].data}/${this.motorAct[i].bimg}.jpg" class="swiper-lazy"><div class="swiper-lazy-preloader swiper-lazy-preloader-black"></div><p>${this.motorAct[i].info}</p></div>`;
+								}
+							}
+							galleryTop.removeAllSlides();
+							galleryTop.update();
+							galleryTop.appendSlide(html2);
+							galleryTop.slideTo(0);
+							break;
+						case 4:
+							var Pages = Math.floor((this.motorAct.length - 1) / PageSize) + 1;
+							console.log(this.motorAct)
+							if(Page < 1)Page = 1;
+							if(Page > Pages)Page = Pages;
+							var Temp = "";
+							var BeginNO = (Page - 1) * PageSize + 1;
+							var EndNO = Page * PageSize;
+							if(EndNO > this.motorAct.length) EndNO = this.motorAct.length;
+							if(EndNO == 0) BeginNO = 0;
+							if(!(Page <= Pages)) Page = Pages;
+							if(Page > 1 && Page !== 1){Temp ="<a href='javascript:GotoPage(" + (Page - 1) + ")'>上一页</a>"}else{Temp = "<span>上一页</span>"};
+							var PageFrontSum = 3;
+							var PageBackSum = 3;
+							var PageFront = PageFrontSum - (Page - 1);
+							var PageBack = PageBackSum - (Pages - Page);
+							if(PageFront > 0 && PageBack < 0)PageBackSum += PageFront;
+							if(PageBack > 0 && PageFront < 0)PageFrontSum += PageBack;
+							var PageFrontBegin = Page - PageFrontSum;
+							if(PageFrontBegin < 1)PageFrontBegin = 1;
+							var PageFrontEnd = Page + PageBackSum;
+							if(PageFrontEnd > Pages)PageFrontEnd = Pages;
+							if(PageFrontBegin != 1) Temp += '<a href="javascript:GotoPage(' + (Page - 10) + ')" title="前10页">..</a>';
+							for(var i = PageFrontBegin;i < Page;i ++){
+								Temp += " <a href='javascript:GotoPage(" + i + ")'>" + i + "</a>";
+							}
+							Temp += " <span class='cur'>" + Page + "</span>";
+							for(var i = Page + 1;i <= PageFrontEnd;i ++){
+								Temp += " <a href='javascript:GotoPage(" + i + ")'>" + i + "</a>";
+							}
+							if(PageFrontEnd != Pages) Temp += " <a href='javascript:GotoPage(" + (Page + 10) + ")' title='后10页'>..</a>";
+							if(Page != Pages){Temp += "<a href='javascript:GotoPage(" + (Page + 1) + ")'>下一页</a>"}else{Temp += "<span>下一页</span>"}
+
+							$('.flip').html(Temp);
+
+							if(EndNO == 0){
+								$('.plog').html("<div class='noNum'>还没有数据哦~</div>");
+								return;
+							}
+							var html = "";
+							for(var i = BeginNO - 1;i < EndNO;i ++ ){
+								html += `<a href="./blog/${this.motorAct[i].link}.html" target="_blank">
+											<img src="./image/works/${this.motorAct[i].img}.jpg">
+											<p>${this.motorAct[i].p}</p>
+											<span>${this.motorAct[i].span}</span>
+											<span>${this.motorAct[i].data}</span>
+										</a>`;
+							}
+							$('.plog').html(html);
+							$('.flip a').click(function(){
+								$('.plog').scrollTop(0);
+							})
+
+							break;
+					}
+				}
+			}
+			
+		</script>
+	</body>
+</html>
